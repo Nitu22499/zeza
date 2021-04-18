@@ -10,6 +10,6 @@ class EventViewSet(ModelViewSet):
     allowed_methods => GET, POST
     API to store/return Event data
     """
-    queryset = Event.objects.all()
+    queryset = Event.objects.all().order_by('-event_date')
     serializer_class = EventSerializer
     permission_classes = [AllowAny]

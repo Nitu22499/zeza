@@ -85,13 +85,25 @@ WSGI_APPLICATION = 'zeza.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'zeza-event',
+        'CLIENT': {
+         'host': 'mongodb+srv://admin:admin123@zeza.ffd2a.mongodb.net/zeza-event?retryWrites=true&w=majority',
+        'username' : 'admin',       
+        'password' : 'admin123',
+        },
+       
+        # 'PORT': 27017,
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -139,11 +151,10 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS_ALLOWED_ORIGINS = [
-    # "https://example.com",
-    # "https://sub.example.com",
-    # "http://localhost:8080",
-    # "http://127.0.0.1:8000"
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "https://zeza-event-app.netlify.app/",
+    "http://localhost:8080",
+    "http://127.0.0.1:8000"
+]
 
-CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_ALL_ORIGINS = True
